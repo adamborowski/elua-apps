@@ -1,3 +1,11 @@
+### eLua script Launcher
 Java GUI tool to send and execute elua programs via xmodem over COM connection.
-The program contains file browser, Send&Execute button, a field to write into COM and text area with COM input.
-At start it connects to tty serial port and when you click the button, program sends CTRL+X special chars to kill any executed lua script, writes "recv" command to begin transaction and sends selected file through XMODEM, after that the script is starting.
+The program contains file browser, Send&Execute button, a field to write into COM and text area with COM output.
+
+The workflow:
+
+1. At start it connects to tty serial port
+1. click The Button
+1. program sends CTRL+X special chars to kill any executed lua script
+1. program writes "recv" command to begin transaction
+1. program sends selected file through XMODEM, after that the script is starting.
