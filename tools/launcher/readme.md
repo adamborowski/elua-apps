@@ -7,5 +7,6 @@ The workflow:
 1. At start it connects to tty serial port
 1. click The Button
 1. program sends CTRL+X special chars to kill any executed lua script
+2. program compiles selected file into lua bytecode
 1. program writes "recv" command to begin transaction
-1. program sends selected file through XMODEM, after that the script is starting.
+1. program sends selected bytecode through XMODEM, after that the script is starting.
