@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07112ef8-51b5-46c0-96b9-057c19c2d637" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/send_elua/send_elua.tcl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tools/compilerun" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/misc/constants.lua" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/misc/pc_test.lua" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/misc/pio.lua" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/misc/spi2.lua" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/misc/uart.lua" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/misc/uart_pipe_non_blocking.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="elua-apps.iws" />
@@ -39,7 +44,7 @@
       <file leaf-file-name="display.lua" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="8" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.3477589" vertical-offset="0" max-vertical-offset="2805">
+            <state line="47" column="8" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.3488372" vertical-offset="0" max-vertical-offset="2805">
               <folding>
                 <element signature="e#33#730#1" expanded="false" />
               </folding>
@@ -132,6 +137,20 @@
               <option name="myItemId" value="tools" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elua-apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="elua-apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tools" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="send_elua" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -152,20 +171,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="launcher" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elua-apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elua-apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -258,17 +263,23 @@
       <created>1383903902696</created>
       <updated>1383903902696</updated>
     </task>
+    <task id="LOCAL-00001" summary="some scripts uploaded">
+      <created>1383904310827</created>
+      <updated>1383904310827</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="51" width="1616" height="1157" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32936507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3300199" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25353926" sideWeight="0.6706349" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25353926" sideWeight="0.6699801" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -279,7 +290,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -293,7 +303,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="upload main.lua" />
-    <option name="LAST_COMMIT_MESSAGE" value="upload main.lua" />
+    <MESSAGE value="some scripts uploaded" />
+    <option name="LAST_COMMIT_MESSAGE" value="some scripts uploaded" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -327,7 +338,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="8" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.3477589" vertical-offset="0" max-vertical-offset="2805">
+        <state line="47" column="8" selection-start="1030" selection-end="1030" vertical-scroll-proportion="0.3488372" vertical-offset="0" max-vertical-offset="2805">
           <folding>
             <element signature="e#33#730#1" expanded="false" />
           </folding>
