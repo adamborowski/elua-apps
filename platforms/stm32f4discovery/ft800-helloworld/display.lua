@@ -159,18 +159,30 @@ spi.setup(sid, spi.MASTER, 4000, 0, 0, 8)
 
 --WRITE CMD--
 csclose()
+
+
+
+pio.pin.setlow(pio.PA_2)
+tmr.delay(0, 25000)
+pio.pin.sethigh(pio.PA_2)
+tmr.delay(0, 25000)
+
 cmd(0x00) -- wake up
 cmd(0x44) -- external clock
-cmd(0x62)
+cmd(0x62) -- 48 MHz
 cmd(0x68) --core reset
 
-print("read chiipd".. rd8(0x0C0000))
-print("read chiipd".. rd8(0x0C0001))
-print("read chiipd".. rd8(0x0C0002))
-print("read chiipd".. rd8(0x0C0003))
+--print("read chiip id: ".. rd8(0x0C0000))
+--print("read chiip id: ".. rd8(0x0C0001))
+--print("read chiip id: ".. rd8(0x0C0002))
+--print("read chiip id: ".. rd8(0x0C0003))
 
 tmr.delay(0, 10000)
-numWaits=10
+
+
+local dev_id=rd8(0x102400)
+print("dev_id: "..dev_id)
+numWaits=1000
 while numWaits>0 do
 	numWaits=numWaits-1
 	print("waiting\n")

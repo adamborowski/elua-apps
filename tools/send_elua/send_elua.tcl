@@ -15,7 +15,8 @@ while {1} {
                 -buffering none \
                 -blocking 0 \
                 -translation binary
-            
+            puts $fh "\x1A"
+            flush $fh
             fileevent $fh readable {
                 set income [read $fh]
                 if {[regexp {CC} $income]} {
@@ -36,8 +37,7 @@ while {1} {
                     puts $fh "$line\r\n"
                 }
             }
-            puts $fh "\x18"
-            flush $fh
+            
             puts $fh "recv\r\n"
             flush $fh
             
