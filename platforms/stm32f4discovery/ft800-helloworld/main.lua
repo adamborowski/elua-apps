@@ -11,5 +11,5 @@ F={
     COS = 3,
     COS = 4
 }
-print ("Hello world, of course on VirtualCOM")
+print ("Hello world, of course on VirtualCOM.")
 
