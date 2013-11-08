@@ -134,7 +134,7 @@ function rd8(address)
 end
 
 --#define CLEAR_COLOR_RGB(red,green,blue) ((2UL<<24)|(((red)&255UL)<<16)|(((green)&255UL)<<8)|(((blue)&255UL)<<0))
-function clear_color_rgb(r, g, b)
+function clear_color_rgb3(r, g, b)
     local result = lsh(2, 24)
     result = result + lsh(band(b, 0xff), 16)
     result = result + lsh(band(g, 0xff), 8)
@@ -142,16 +142,25 @@ function clear_color_rgb(r, g, b)
     return result
 end
 
+function clear_color_rgb1(rgb)
+    return bor(0x02000000, rgb)
+end
 
 --#define CLEAR_COLOR_RGB(red,green,blue) ((2UL<<24)|(((red)&255UL)<<16)|(((green)&255UL)<<8)|(((blue)&255UL)<<0))
 --#define COLOR_RGB(red,green,blue)       ((4UL<<24)|(((red)&255UL)<<16)|(((green)&255UL)<<8)|(((blue)&255UL)<<0))
-function color_rgb(r, g, b)
+function color_rgb3(r, g, b)
     local result = lsh(4, 24)
     result = result + lsh(band(b, 0xff), 16)
     result = result + lsh(band(g, 0xff), 8)
     result = result + band(r, 0xff)
     return result
 end
+
+function color_rgb1(rgb)
+    return bor(0x04000000, rgb)
+end
+
+
 
 --#define CLEAR(c,s,t) ((38UL<<24)|(((c)&1UL)<<2)|(((s)&1UL)<<1)|(((t)&1UL)<<0))
 function clear(c, s, t)
@@ -279,7 +288,7 @@ function v800_display_config()
 end
 
 function vm800_display_start()
-    wr32(F.RAM_DL + 0, clear_color_rgb(0, 0, 0))
+    wr32(F.RAM_DL + 0, clear_color_rgb3(0, 0, 0))
     wr32(F.RAM_DL + 4, clear(1, 1, 1))
     wr32(F.RAM_DL + 8, cmdAddress, 0); --DISPLAY()
     wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
@@ -294,15 +303,20 @@ function vm800_display_start()
 end
 
 cmdAddress = F.RAM_DL
-function reset()
+function reset(color)
     cmdAddress = F.RAM_DL
-    draw(clear_color_rgb(0xff, 0xff, 0xff))
+    draw(clear_color_rgb1(color))
     draw(clear(1, 1, 1))
 end
 
 function draw(data)
     wr32(cmdAddress, data)
     cmdAddress = cmdAddress + 4
+end
+
+function draw_small(data)
+    wr16(cmdAddress, data)
+    cmdAddress = cmdAddress + 2
 end
 
 function commit()
@@ -314,9 +328,80 @@ function commit()
     --    wr8(F.REG_GPIO, 0x80)
 end
 
+function makeText(str, x, y, color, font, letterspacing)
+    draw(color_rgb1(color))
+    draw(begin(1))
+    for i = 1, string.len(str) do
+        draw(vertex2ii(x + (i-1) * letterspacing, y, font, string.byte(str, i))) --; / / ascii t
+    end
+    draw(d_end())
+end
+
+function handle_interrupt()
+    if uart.read(0xb0, 1, 0) ~= "" then
+        makeAnyErrorToExit()
+    end
+    return true
+end
+
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
+function frameLoop()
+    c = 0
+    dir = 1
+    while handle_interrupt() do
+        reset((0x000000))
+
+        draw(color_rgb3(0xff, c, 0xff - c / 2))
+--        draw(point_size(c * 9 + 48)); -- Set size to 320 / 16 = 20 pixels
+        draw(point_size(400)); -- Set size to 320 / 16 = 20 pixels
+        draw(begin(2)); -- Start the point draw
+        draw(vertex2ii(c, 220, 0, 0));
+        draw(d_end())
+
+
+        local x1, x2, y1, y2, dy = 10, 20, 10, 40, 17
+        local f1, f2=31, 20
+        makeText("DAC SYSTEM", x1, y1, 0xF57910, f1, 26)
+        makeText("ADAM   BOROWSKI", x1 + x2, y2 + dy,    0x444444, f2, 10)
+        makeText("PAWEL  CIEPLY", x1 + x2, y2 + 2 * dy,  0x444444, f2, 10)
+        makeText("TOMASZ LASSAUD", x1 + x2, y2 + 3 * dy, 0x444444, f2, 10)
+        makeText("MACIEJ RZYMSKI", x1 + x2, y2 + 4 * dy, 0x444444, f2, 10)
+
+
+
+
+
+
+
+
+
+
+
+        -- do tego momenrtu dzialalo
+
+        --        -- a tu probujemy zrobic tekst
+        --        draw(color_rgb(0xff, 0x00, 0x00))
+        --        draw(0xffffff0c)
+        --        draw_small(10)  -- x
+        --        draw_small(10)  -- y
+        --        draw_small(31) --font type
+        --        draw_small(0) -- options
+        --        draw_small(0x41)
+        --      --  draw_small(0) -- string end
+        --        draw(d_end())
+        --        -------
+
+        commit()
+
+        c = c + dir * 1
+        if c < 0 or c > 255 then
+            dir = -dir;
+        end
+    end
+end
+
 
 for i, iPin in ipairs(lowPins) do
     --	print (iPin.." - "..i)
@@ -330,28 +415,12 @@ end
 spi.setup(sid, spi.MASTER, 1e7, 0, 0, 8)
 v800_init()
 --    5) At this point, the Host MCU SPI Master can change the SPI clock up to 30 MHzZ
-spi.setup(sid, spi.MASTER, 3e7, 0, 0, 8)
+spi.setup(sid, spi.MASTER, 30000000, 0, 0, 8)
 v800_display_config()
 print("after display list")
 vm800_display_start()
-c = 0
-dir = 1
-while true do
-    --    tmr.delay(0, 1000)
-    reset()
+frameLoop()
 
-    draw(color_rgb(0xff, c, 0xff - c / 2))
-    draw(point_size(c * 9 + 48)); -- Set size to 320 / 16 = 20 pixels
-    draw(begin(2)); -- Start the point draw
-    draw(vertex2ii(c, 133, 0, 0));
-    draw(d_end())
-    commit()
-
-    c = c + dir * 1
-    if c < 0 or c > 255 then
-        dir = -dir;
-    end
-end
 
 --
 --
