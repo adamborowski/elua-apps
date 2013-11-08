@@ -1,3 +1,4 @@
+SMALL_LCD = false
 band = bit.band
 bor = bit.bor
 lsh = bit.lshift
@@ -251,33 +252,35 @@ function v800_display_config()
     --  REG_VSYNC1    End of VSYNC pulse(rising edge)              10      2
     --]]
 
-    --    wr8(F.REG_PCLK_POL, 0)
-    --    wr16(F.REG_HSIZE, 320)
-    --    wr16(F.REG_HCYCLE, 408)
-    --    wr16(F.REG_HOFFSET, 70)
-    --    wr16(F.REG_HSYNC0, 0)
-    --    wr16(F.REG_HSYNC1, 10)
-    --
-    --    wr16(F.REG_VSIZE, 240)
-    --    wr16(F.REG_VCYCLE, 263)
-    --    wr16(F.REG_VOFFSET, 13)
-    --    wr16(F.REG_VSYNC0, 0)
-    --    wr16(F.REG_VSYNC1, 2)
 
 
-    wr8(F.REG_PCLK_POL, 1)
-    wr16(F.REG_HSIZE, 480)
-    wr16(F.REG_HCYCLE, 548)
-    wr16(F.REG_HOFFSET, 43)
-    wr16(F.REG_HSYNC0, 0)
-    wr16(F.REG_HSYNC1, 41)
+    if SMALL_LCD then
+        wr8(F.REG_PCLK_POL, 0)
+        wr16(F.REG_HSIZE, 320)
+        wr16(F.REG_HCYCLE, 408)
+        wr16(F.REG_HOFFSET, 70)
+        wr16(F.REG_HSYNC0, 0)
+        wr16(F.REG_HSYNC1, 10)
 
-    wr16(F.REG_VSIZE, 272)
-    wr16(F.REG_VCYCLE, 292)
-    wr16(F.REG_VOFFSET, 12)
-    wr16(F.REG_VSYNC0, 0)
-    wr16(F.REG_VSYNC1, 10)
+        wr16(F.REG_VSIZE, 240)
+        wr16(F.REG_VCYCLE, 263)
+        wr16(F.REG_VOFFSET, 13)
+        wr16(F.REG_VSYNC0, 0)
+        wr16(F.REG_VSYNC1, 2)
+    else
+        wr8(F.REG_PCLK_POL, 1)
+        wr16(F.REG_HSIZE, 480)
+        wr16(F.REG_HCYCLE, 548)
+        wr16(F.REG_HOFFSET, 43)
+        wr16(F.REG_HSYNC0, 0)
+        wr16(F.REG_HSYNC1, 41)
 
+        wr16(F.REG_VSIZE, 272)
+        wr16(F.REG_VCYCLE, 292)
+        wr16(F.REG_VOFFSET, 12)
+        wr16(F.REG_VSYNC0, 0)
+        wr16(F.REG_VSYNC1, 10)
+    end
 
 
     --[[ 3) Enable or disable REG_CSPREAD with a value of 01h or 00h, respectively.
@@ -332,7 +335,7 @@ function makeText(str, x, y, color, font, letterspacing)
     draw(color_rgb1(color))
     draw(begin(1))
     for i = 1, string.len(str) do
-        draw(vertex2ii(x + (i-1) * letterspacing, y, font, string.byte(str, i))) --; / / ascii t
+        draw(vertex2ii(x + (i - 1) * letterspacing, y, font, string.byte(str, i))) --; / / ascii t
     end
     draw(d_end())
 end
@@ -354,7 +357,7 @@ function frameLoop()
         reset((0x000000))
 
         draw(color_rgb3(0xff, c, 0xff - c / 2))
---        draw(point_size(c * 9 + 48)); -- Set size to 320 / 16 = 20 pixels
+        --        draw(point_size(c * 9 + 48)); -- Set size to 320 / 16 = 20 pixels
         draw(point_size(400)); -- Set size to 320 / 16 = 20 pixels
         draw(begin(2)); -- Start the point draw
         draw(vertex2ii(c, 220, 0, 0));
@@ -362,12 +365,14 @@ function frameLoop()
 
 
         local x1, x2, y1, y2, dy = 10, 20, 10, 40, 17
-        local f1, f2=31, 20
+        local f1, f2 = 31, 20
         makeText("DAC SYSTEM", x1, y1, 0xF57910, f1, 26)
-        makeText("ADAM   BOROWSKI", x1 + x2, y2 + dy,    0x444444, f2, 10)
-        makeText("PAWEL  CIEPLY", x1 + x2, y2 + 2 * dy,  0x444444, f2, 10)
+        makeText("ADAM   BOROWSKI", x1 + x2, y2 + dy, 0x444444, f2, 10)
+        makeText("PAWEL  CIEPLY", x1 + x2, y2 + 2 * dy, 0x444444, f2, 10)
         makeText("TOMASZ LASSAUD", x1 + x2, y2 + 3 * dy, 0x444444, f2, 10)
         makeText("MACIEJ RZYMSKI", x1 + x2, y2 + 4 * dy, 0x444444, f2, 10)
+
+        makeText("APLIKACJE SYSTEMOW WBUDOWANYCH 2013", x1 + x2, 250, 0xff3300, 22, 12)
 
 
 
@@ -419,6 +424,9 @@ spi.setup(sid, spi.MASTER, 30000000, 0, 0, 8)
 v800_display_config()
 print("after display list")
 vm800_display_start()
+
+print("odczyt: " .. rd8(0x0C0000) .. " / " .. rd8(0x0C0001) .. " / " .. rd8(0x0C0002) .. " / " .. rd8(0x0C0003))
+
 frameLoop()
 
 
