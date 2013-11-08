@@ -242,18 +242,34 @@ function v800_display_config()
     --  REG_VSYNC1    End of VSYNC pulse(rising edge)              10      2
     --]]
 
-    wr8(F.REG_PCLK_POL, 0)
-    wr16(F.REG_HSIZE, 320)
-    wr16(F.REG_HCYCLE, 408)
-    wr16(F.REG_HOFFSET, 70)
-    wr16(F.REG_HSYNC0, 0)
-    wr16(F.REG_HSYNC1, 10)
+    --    wr8(F.REG_PCLK_POL, 0)
+    --    wr16(F.REG_HSIZE, 320)
+    --    wr16(F.REG_HCYCLE, 408)
+    --    wr16(F.REG_HOFFSET, 70)
+    --    wr16(F.REG_HSYNC0, 0)
+    --    wr16(F.REG_HSYNC1, 10)
+    --
+    --    wr16(F.REG_VSIZE, 240)
+    --    wr16(F.REG_VCYCLE, 263)
+    --    wr16(F.REG_VOFFSET, 13)
+    --    wr16(F.REG_VSYNC0, 0)
+    --    wr16(F.REG_VSYNC1, 2)
 
-    wr16(F.REG_VSIZE, 240)
-    wr16(F.REG_VCYCLE, 263)
-    wr16(F.REG_VOFFSET, 13)
+
+    wr8(F.REG_PCLK_POL, 1)
+    wr16(F.REG_HSIZE, 480)
+    wr16(F.REG_HCYCLE, 548)
+    wr16(F.REG_HOFFSET, 43)
+    wr16(F.REG_HSYNC0, 0)
+    wr16(F.REG_HSYNC1, 41)
+
+    wr16(F.REG_VSIZE, 272)
+    wr16(F.REG_VCYCLE, 292)
+    wr16(F.REG_VOFFSET, 12)
     wr16(F.REG_VSYNC0, 0)
-    wr16(F.REG_VSYNC1, 2)
+    wr16(F.REG_VSYNC1, 10)
+
+
 
     --[[ 3) Enable or disable REG_CSPREAD with a value of 01h or 00h, respectively.
     -- Enabling REG_CSPREAD will offset the R, G and B output bits so all they do not all change at the same time
@@ -263,7 +279,7 @@ function v800_display_config()
 end
 
 function vm800_display_start()
-    wr32(F.RAM_DL + 0, clear_color_rgb(0xff, 0xcc, 0x33))
+    wr32(F.RAM_DL + 0, clear_color_rgb(0, 0, 0))
     wr32(F.RAM_DL + 4, clear(1, 1, 1))
     wr32(F.RAM_DL + 8, cmdAddress, 0); --DISPLAY()
     wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
@@ -280,7 +296,7 @@ end
 cmdAddress = F.RAM_DL
 function reset()
     cmdAddress = F.RAM_DL
-    draw(clear_color_rgb(0xff, 0xcc, 0x33))
+    draw(clear_color_rgb(0xff, 0xff, 0xff))
     draw(clear(1, 1, 1))
 end
 
@@ -321,18 +337,18 @@ vm800_display_start()
 c = 0
 dir = 1
 while true do
---    tmr.delay(0, 1000)
+    --    tmr.delay(0, 1000)
     reset()
 
-    draw(color_rgb(0xff, c*2, 0xff-c))
-    draw(point_size(c*6+48)); -- Set size to 320 / 16 = 20 pixels
+    draw(color_rgb(0xff, c, 0xff - c / 2))
+    draw(point_size(c * 9 + 48)); -- Set size to 320 / 16 = 20 pixels
     draw(begin(2)); -- Start the point draw
-    draw(vertex2ii(102 + c, 133, 0, 0));
+    draw(vertex2ii(c, 133, 0, 0));
     draw(d_end())
     commit()
 
-    c = c +dir*1
-    if c < 0 or c>120 then
+    c = c + dir * 1
+    if c < 0 or c > 255 then
         dir = -dir;
     end
 end

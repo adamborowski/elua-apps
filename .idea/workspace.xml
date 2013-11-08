@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07112ef8-51b5-46c0-96b9-057c19c2d637" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/constants.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,7 +29,7 @@
       <file leaf-file-name="display.lua" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="337" column="3" selection-start="10385" selection-end="10385" vertical-scroll-proportion="0.8133748" vertical-offset="4532" max-vertical-offset="5415">
+            <state line="350" column="24" selection-start="10727" selection-end="10727" vertical-scroll-proportion="0.7667185" vertical-offset="4757" max-vertical-offset="5655">
               <folding />
             </state>
           </provider>
@@ -286,7 +285,11 @@
       <created>1383908010473</created>
       <updated>1383908010473</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="some scripts uploaded">
+      <created>1383920250317</created>
+      <updated>1383920250317</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -364,7 +367,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="337" column="3" selection-start="10385" selection-end="10385" vertical-scroll-proportion="0.8133748" vertical-offset="4532" max-vertical-offset="5415">
+        <state line="350" column="24" selection-start="10727" selection-end="10727" vertical-scroll-proportion="0.7667185" vertical-offset="4757" max-vertical-offset="5655">
           <folding />
         </state>
       </provider>
