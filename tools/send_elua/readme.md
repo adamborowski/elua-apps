@@ -12,8 +12,13 @@ $ elua-apps/tools/send_elua/send_elua.tcl elua-apps/platforms/stm32f4discovery/f
 
 ### display.modules
 > constants.lua
+
 utils.lua
+
 spi.lua
+
 ft800.lua
+
 ft800-drawing.lua
+
 display.lua
