@@ -11,7 +11,7 @@
 $ elua-apps/tools/send_elua/send_elua.tcl elua-apps/platforms/stm32f4discovery/ft800-helloworld/display.modules
 
 ### display.modules
-constants.lua
+> constants.lua
 utils.lua
 spi.lua
 ft800.lua
