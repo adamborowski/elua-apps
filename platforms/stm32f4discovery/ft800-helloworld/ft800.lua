@@ -5,18 +5,19 @@ function cmd(data)
     tmr.delay(0, 10000)
 end
 
+local addr1, addr2, addr3, data1, data2, data3, data4
 --[[
 @param address 22 bit adress
 @param data 2 bytes data
 --]]
 function wr16(address, data)
     csopen()
-    local addr1 = rsh(address, 16) + 128
-    local addr2 = band(rsh(address, 8), 0xff)
-    local addr3 = band(address, 0xff)
-    local data1 = band(data, 0xff)
-    local data2 = band(rsh(data, 8), 0xff)
-    spi.readwrite(sid, addr1, addr2, addr3, data1, data2)
+    addr1 = rsh(address, 16) + 128
+    addr2 = band(rsh(address, 8), 0xff)
+    addr3 = band(address, 0xff)
+    data1 = band(data, 0xff)
+    data2 = band(rsh(data, 8), 0xff)
+    spi.write(sid, addr1, addr2, addr3, data1, data2)
     csclose()
 end
 
@@ -26,14 +27,14 @@ end
 --]]
 function wr32(address, data)
     csopen()
-    local addr1 = rsh(address, 16) + 128
-    local addr2 = band(rsh(address, 8), 0xff)
-    local addr3 = band(address, 0xff)
-    local data1 = band(data, 0xff)
-    local data2 = band(rsh(data, 8), 0xff)
-    local data3 = band(rsh(data, 16), 0xff)
-    local data4 = band(rsh(data, 24), 0xff)
-    spi.readwrite(sid, addr1, addr2, addr3, data1, data2, data3, data4)
+    addr1 = rsh(address, 16) + 128
+    addr2 = band(rsh(address, 8), 0xff)
+    addr3 = band(address, 0xff)
+    data1 = band(data, 0xff)
+    data2 = band(rsh(data, 8), 0xff)
+    data3 = band(rsh(data, 16), 0xff)
+    data4 = band(rsh(data, 24), 0xff)
+    spi.write(sid, addr1, addr2, addr3, data1, data2, data3, data4)
     csclose()
 end
 
@@ -43,10 +44,20 @@ end
 --]]
 function wr8(address, data)
     csopen()
-    local addr1 = rsh(address, 16) + 128
-    local addr2 = band(rsh(address, 8), 0xff)
-    local addr3 = band(address, 0xff)
-    spi.readwrite(sid, addr1, addr2, addr3, data)
+    addr1 = rsh(address, 16) + 128
+    addr2 = band(rsh(address, 8), 0xff)
+    addr3 = band(address, 0xff)
+    spi.write(sid, addr1, addr2, addr3, data)
+    csclose()
+end
+
+
+function wrn(address, bytes, howMuch)
+    csopen()
+    addr1 = rsh(address, 16) + 128
+    addr2 = band(rsh(address, 8), 0xff)
+    addr3 = band(address, 0xff)
+    spi.write(sid, addr1, addr2, addr3, unpack(table_slice(bytes, 1, howMuch)))
     csclose()
 end
 
@@ -55,12 +66,39 @@ end
 --]]
 function rd8(address)
     csopen()
-    local addr1 = rsh(address, 16) + 0
-    local addr2 = band(rsh(address, 8), 0xff)
-    local addr3 = band(address, 0xff)
+    addr1 = rsh(address, 16) + 0
+    addr2 = band(rsh(address, 8), 0xff)
+    addr3 = band(address, 0xff)
     local ret = spi.readwrite(sid, addr1, addr2, addr3, 0x00, 0x00) -- dummy byte and one byte for answer
     csclose()
     return ret[5]
+end
+
+--[[
+@param address 22 bit adress
+--]]
+function rd16(address)
+    csopen()
+    addr1 = rsh(address, 16) + 0
+    addr2 = band(rsh(address, 8), 0xff)
+    addr3 = band(address, 0xff)
+    local ret = spi.readwrite(sid, addr1, addr2, addr3, 0x00, 0x00, 0x00) -- dummy byte and two bytes for answer
+    csclose()
+    return bor(ret[5], lsh(ret[6], 8))
+end
+
+
+--[[
+@param address 22 bit adress
+--]]
+function rd32(address)
+    csopen()
+    addr1 = rsh(address, 16) + 0
+    addr2 = band(rsh(address, 8), 0xff)
+    addr3 = band(address, 0xff)
+    local ret = spi.readwrite(sid, addr1, addr2, addr3, 0x00, 0x00, 0x00, 0x00, 0x00) -- dummy byte and four bytes for answer
+    csclose()
+    return bor(ret[5], lsh(ret[6], 8), lsh(ret[7], 16), lsh(ret[8], 24))
 end
 
 
@@ -153,8 +191,7 @@ function v800_display_config(SMALL_LCD)
         wr16(F.REG_HCYCLE, 548)
         wr16(F.REG_HOFFSET, 43)
         wr16(F.REG_HSYNC0, 0)
-        wr16(F.REG_HSYNC1, 41)
-
+        wr16(F.REG_HSYNC1, 41) --
         wr16(F.REG_VSIZE, 272)
         wr16(F.REG_VCYCLE, 292)
         wr16(F.REG_VOFFSET, 12)
@@ -173,14 +210,14 @@ end
 function vm800_display_start()
     wr32(F.RAM_DL + 0, clear_color_rgb3(0, 0, 0))
     wr32(F.RAM_DL + 4, clear(1, 1, 1))
-    wr32(F.RAM_DL + 8, cmdAddress, 0); --DISPLAY()
+    wr32(F.RAM_DL + 8, 0); --DISPLAY()
     wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
 
     --Up until this point, no output has been generated on the LCD interface. With the configuration and
     --initial display list in place, the LCD DISP signal , backlight and pixel clock can now be turned on:
     wr8(F.REG_GPIO_DIR, 0x80)
     wr8(F.REG_GPIO, 0x80)
-    wr8(F.REG_PWM_HZ, 0xfa)
-    wr8(F.REG_PWM_DUTY, 0x80)
+    wr8(F.REG_PWM_DUTY, 100) -- brightness, max 128
+    wr32(F.REG_PWM_HZ, 300) -- blinking from 250 to 10000 (10 is seen as light pulsing, 250 is not able to see pulsing)
     wr8(F.REG_PCLK, 0x08) --;//after this display is visible on the LCD
 end

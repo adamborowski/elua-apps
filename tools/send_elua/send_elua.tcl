@@ -18,8 +18,9 @@ puts "    visit: [color {1;5;36} http://github.com/adamborowski/elua-apps/]"
 
 set fileName [file normalize $argv]
 
-regexp {(.*)\.[^.]+$} $fileName res result
-set outName $result.out
+#regexp {(.*)\.[^.]+$} $fileName res result
+#set outName $result.out
+set outName /tmp/send_elua.out
 if { $fileName eq ""} {
     puts "no modules file found"
     exit
