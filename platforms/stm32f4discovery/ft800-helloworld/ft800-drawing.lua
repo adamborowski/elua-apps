@@ -85,6 +85,7 @@ function draw_small(data)
 end
 
 function commit()
+    print("drawing bytes count: " .. cmdAddress - F.RAM_DL)
     wr32(cmdAddress, 0); --DISPLAY()
     wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
 
@@ -95,9 +96,9 @@ end
 
 function makeText(str, x, y, color, font, letterspacing)
     draw(color_rgb1(color))
-    draw(begin(1))
+--    draw(begin(1))
     for i = 1, string.len(str) do
-        draw(vertex2ii(x + (i - 1) * letterspacing, y, font, string.byte(str, i))) --; / / ascii t
+        draw(vertex2ii(x + (i - 1) * letterspacing, y, font, string.byte(str, i)))
     end
-    draw(d_end())
+--    draw(d_end())
 end

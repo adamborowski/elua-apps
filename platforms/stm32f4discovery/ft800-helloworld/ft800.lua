@@ -66,15 +66,22 @@ end
 
 
 function v800_init()
+    pdPin = pio.PE_6
+    print(10000000)
+    pio.pin.setdir(pio.OUTPUT, pdPin)
     --    1) Reset the FT800
     --      -  Drive PD_N low
+    print("pin low")
     pio.pin.setlow(pdPin)
+    print("pin low set")
     --      -  Wait 20ms
-    --    tmr.delay(0, 25000)
+    tmr.delay(0, 20000)
     --      - back to high state
+    print("pin high")
     pio.pin.sethigh(pdPin)
+    print("pin high set")
     --      -  Wait for 20 ms
-    tmr.delay(0, 25000)
+    tmr.delay(0, 20000)
     --    2) Issue the Wake - up command
     --      -  Write 0x00 , 0x00 , 0x00
     cmd(0x00) -- wake up <<< at this time lcd emits white light !
@@ -100,6 +107,7 @@ function v800_init()
     --      -  Write 0x80 to location 0x102490 << 0x80 = 1<<7
     --?????????????????????????????????????????????????????????????
     wr8(F.REG_GPIO, bor(0x80, rd8(F.REG_GPIO))) --;//enable display bit
+
 end
 
 function v800_display_config(SMALL_LCD)
@@ -158,8 +166,8 @@ function v800_display_config(SMALL_LCD)
     --[[ 3) Enable or disable REG_CSPREAD with a value of 01h or 00h, respectively.
     -- Enabling REG_CSPREAD will offset the R, G and B output bits so all they do not all change at the same time
      ]]
-    --wr8(F.REG_SWIZZLE, 0)
-    wr8(F.REG_CSPREAD, 1)
+--    wr8(F.REG_SWIZZLE, 0)
+    wr8(F.REG_CSPREAD, 0)
 end
 
 function vm800_display_start()
