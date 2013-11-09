@@ -11,9 +11,9 @@
 $ elua-apps/tools/send_elua/send_elua.tcl elua-apps/platforms/stm32f4discovery/ft800-helloworld/display.modules
 
 ### lines of file display.modules 
-*constants.lua
-*utils.lua
-*spi.lua
-*ft800.lua
-*ft800-drawing.lua
-*display.lua
+. constants.lua
+. utils.lua
+. spi.lua
+. ft800.lua
+. ft800-drawing.lua
+. display.lua
