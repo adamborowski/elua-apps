@@ -7,4 +7,13 @@
 1. execute "lua cross-lua.lua" to generate toolchain for enable cross compilation lua bytecode on your pc
 1. if you want to send elua bytecode you must provide a file containig list of relative paths of files you want to merge in order of occurence
 
-### ex
+### example usage
+$ elua-apps/tools/send_elua/send_elua.tcl elua-apps/platforms/stm32f4discovery/ft800-helloworld/display.modules
+
+### display.modules
+constants.lua
+utils.lua
+spi.lua
+ft800.lua
+ft800-drawing.lua
+display.lua
