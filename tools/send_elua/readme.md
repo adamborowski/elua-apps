@@ -1,6 +1,8 @@
 ###cross-compile multiple elua sources into one bytecode file and send it through xmodem to elua shell on your STM32F4
 
 ## requirements
+1. tclsh8.6 (ealier versions not tested) installed
+1. elua tools installed and configured
 1. run as superuser
 1. ensure elua tools are located under ~/elua
 1. goto elua folder
