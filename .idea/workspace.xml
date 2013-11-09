@@ -439,7 +439,8 @@
     <MESSAGE value="upload main.lua" />
     <MESSAGE value="some scripts uploaded" />
     <MESSAGE value="send_elua.tcl now gets .modules file to make bytecode from sources in order written in file. after that, elua bytecode is sent to stm32f4" />
-    <option name="LAST_COMMIT_MESSAGE" value="send_elua.tcl now gets .modules file to make bytecode from sources in order written in file. after that, elua bytecode is sent to stm32f4" />
+    <MESSAGE value="dummy commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="dummy commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
