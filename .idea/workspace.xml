@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07112ef8-51b5-46c0-96b9-057c19c2d637" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/misc/pc_test.lua.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/misc/uart_pipe_non_blocking.lua.out" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.modules" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/ft800-drawing.lua" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/ft800.lua" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/spi.lua" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/main.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/utils.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/constants.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/constants.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/send_elua/send_elua.tcl" afterPath="$PROJECT_DIR$/tools/send_elua/send_elua.tcl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="elua-apps.iws" />
@@ -57,16 +46,7 @@
       <file leaf-file-name="spi.lua" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/spi.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="3" selection-start="296" selection-end="296" vertical-scroll-proportion="0.48868778" vertical-offset="0" max-vertical-offset="630">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="display.modules" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.modules">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="11" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="198">
+            <state line="12" column="3" selection-start="296" selection-end="296" vertical-scroll-proportion="0.4909091" vertical-offset="0" max-vertical-offset="630">
               <folding />
             </state>
           </provider>
@@ -116,8 +96,8 @@
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/ft800.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/ft800-drawing.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
-        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.modules" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/spi.lua" />
+        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.modules" />
       </list>
     </option>
   </component>
@@ -428,11 +408,12 @@
     <frame x="20" y="0" width="1400" height="851" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33001423" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33095577" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.265625" sideWeight="0.6699858" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.265625" sideWeight="0.6690442" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3306773" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -443,7 +424,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -458,7 +438,8 @@
     </option>
     <MESSAGE value="upload main.lua" />
     <MESSAGE value="some scripts uploaded" />
-    <option name="LAST_COMMIT_MESSAGE" value="some scripts uploaded" />
+    <MESSAGE value="send_elua.tcl now gets .modules file to make bytecode from sources in order written in file. after that, elua bytecode is sent to stm32f4" />
+    <option name="LAST_COMMIT_MESSAGE" value="send_elua.tcl now gets .modules file to make bytecode from sources in order written in file. after that, elua bytecode is sent to stm32f4" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -548,14 +529,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.modules">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="11" selection-start="71" selection-end="71" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="198">
+        <state line="2" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.08181818" vertical-offset="0" max-vertical-offset="440">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/spi.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="3" selection-start="296" selection-end="296" vertical-scroll-proportion="0.48868778" vertical-offset="0" max-vertical-offset="630">
+        <state line="12" column="3" selection-start="296" selection-end="296" vertical-scroll-proportion="0.4909091" vertical-offset="0" max-vertical-offset="630">
           <folding />
         </state>
       </provider>
