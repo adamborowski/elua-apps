@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07112ef8-51b5-46c0-96b9-057c19c2d637" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="elua-apps.iws" />
@@ -330,7 +326,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="settings.github" />
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -465,7 +461,8 @@
     <MESSAGE value="some refactorings, created library ft800" />
     <MESSAGE value="some code updates in lib ft800" />
     <MESSAGE value="updated lib ft800 api" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated lib ft800 api" />
+    <MESSAGE value="some bug fixed: remove cached graphics settings on new frame" />
+    <option name="LAST_COMMIT_MESSAGE" value="some bug fixed: remove cached graphics settings on new frame" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
