@@ -1,12 +1,3 @@
---
--- Created by IntelliJ IDEA.
--- User: adam
--- Date: 09.11.13
--- Time: 11:24
--- To change this template use File | Settings | File Templates.
---
-
-
 --#define CLEAR_COLOR_RGB(red,green,blue) ((2UL<<24)|(((red)&255UL)<<16)|(((green)&255UL)<<8)|(((blue)&255UL)<<0))
 function clear_color_rgb3(r, g, b)
     local result = lsh(2, 24)
@@ -77,14 +68,12 @@ function reset(color)
 end
 
 function draw(data)
-    --wr32(cmdAddress, data)
     --indexing from 1, so first is +1 not +0
     drawCommands[drawCommandCounter + 1] = bat(data, 0)
     drawCommands[drawCommandCounter + 2] = bat(data, 1)
     drawCommands[drawCommandCounter + 3] = bat(data, 2)
     drawCommands[drawCommandCounter + 4] = bat(data, 3)
     drawCommandCounter = drawCommandCounter + 4
-    --cmdAddress = cmdAddress + 4
 end
 
 function draw_small(data)
@@ -94,27 +83,14 @@ end
 
 function commit()
 
-    --    for key, value in ipairs(drawCommands) do
-    --        print(key.." : "..value)
-    --    end
-    --    wr32(cmdAddress, 0); --DISPLAY()
-    --    wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
     draw(0)
---    print("drawing bytes count: " .. drawCommandCounter)
---    print("drawing bytes length: " .. #drawCommands)
-
     wrn(cmdAddress, drawCommands, drawCommandCounter) --flush all cached commands in one spi transaction
     wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
-    --wr8(F.REG_GPIO_DIR, bor(0x80, rd8(F.REG_GPIO_DIR)))
-    --    wr8(F.REG_GPIO_DIR, 0x80)
-    --    wr8(F.REG_GPIO, 0x80)
 end
 
 function makeText(str, x, y, color, font, letterspacing)
     draw(color_rgb1(color))
-    --    draw(begin(1))
     for i = 1, string.len(str) do
         draw(vertex2ii(x + (i - 1) * letterspacing, y, font, string.byte(str, i)))
     end
-    --    draw(d_end())
 end

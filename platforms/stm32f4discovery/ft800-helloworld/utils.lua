@@ -41,30 +41,29 @@ end
 
 ---- MEASURE FPS ---------
 
-local lastTmr = tmr.read(1)
-local fps = 0
+local fpsmsr_lastTmr = tmr.read(1)
+local fpsmsr_fps = 0
 tmr.start(1)
-local fpss = {}
-local fpsBufSize = 33
-for i = 1, fpsBufSize do
-    fpss[i] = 0
+local fpsmsr_buffer = {}
+local fpsmsr_bufferSize = 33
+for i = 1, fpsmsr_bufferSize do
+    fpsmsr_buffer[i] = 0
 end
-local fpssum = 0
+local fpsmsr_sum = 0
 function measureFPS()
-    fpssum = 0
-    fpscnt = 0
-    fpss[fpsBufSize + 1] = 1000000 / tmr.getdiffnow(1, lastTmr) -- excess item to move left
-    for i = 1, fpsBufSize do
-        fpss[i] = fpss[i + 1]
-        if fpss[i] ~= 0 and i ~= 1 then -- prevent prebuffering increasing fps
-            fpssum = fpssum + fpss[i]
-            fpscnt = fpscnt + 1
+    fpsmsr_bufferum = 0
+    fpsmsr_fpscnt = 0
+    fpsmsr_buffer[fpsmsr_bufferSize + 1] = 1000000 / tmr.getdiffnow(1, fpsmsr_lastTmr) -- excess item to move left
+    for i = 1, fpsmsr_bufferSize do
+        fpsmsr_buffer[i] = fpsmsr_buffer[i + 1]
+        if fpsmsr_buffer[i] ~= 0 and i ~= 1 then -- prevent prebuffering increasing fps
+            fpsmsr_bufferum = fpsmsr_bufferum + fpsmsr_buffer[i]
+            fpsmsr_fpscnt = fpsmsr_fpscnt + 1
         end
     end
-    fps = fpssum / fpscnt
     tmr.start(1)
-    lastTmr = tmr.read(1)
-    return fps
+    fpsmsr_lastTmr = tmr.read(1)
+    return fpsmsr_bufferum / fpsmsr_fpscnt
 end
 ------------------------------
 

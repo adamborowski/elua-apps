@@ -103,7 +103,7 @@ end
 
 
 
-function v800_init()
+function ft800_init()
     pdPin = pio.PE_6
     print(10000000)
     pio.pin.setdir(pio.OUTPUT, pdPin)
@@ -148,7 +148,7 @@ function v800_init()
 
 end
 
-function v800_display_config(SMALL_LCD)
+function ft800_display_config(SMALL_LCD)
 
     -- configuration for QVGA --
     --   1) Set REG_PCLK to zero - This disables the pixel clock output while the LCD and other system parameters are configured
@@ -207,7 +207,7 @@ function v800_display_config(SMALL_LCD)
     wr8(F.REG_CSPREAD, 0)
 end
 
-function vm800_display_start()
+function ft800_display_start()
     wr32(F.RAM_DL + 0, clear_color_rgb3(0, 0, 0))
     wr32(F.RAM_DL + 4, clear(1, 1, 1))
     wr32(F.RAM_DL + 8, 0); --DISPLAY()
@@ -220,4 +220,13 @@ function vm800_display_start()
     wr8(F.REG_PWM_DUTY, 100) -- brightness, max 128
     wr32(F.REG_PWM_HZ, 300) -- blinking from 250 to 10000 (10 is seen as light pulsing, 250 is not able to see pulsing)
     wr8(F.REG_PCLK, 0x08) --;//after this display is visible on the LCD
+end
+
+function ft800_setup(SMALL_LCD)
+    spi.setup(sid, spi.MASTER, 1e7, 0, 0, 8)
+    ft800_init()
+    --    5) At this point, the Host MCU SPI Master can change the SPI clock up to 30 MHzZ
+    spi.setup(sid, spi.MASTER, 30000000, 0, 0, 8)
+    ft800_display_config(SMALL_LCD) -- true is small lcs
+    ft800_display_start()
 end
