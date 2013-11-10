@@ -30,16 +30,19 @@ while handle_interrupt() do
 
     reset((0x000000)) --8 bytes - param background color
 
+    local x1, x2, y1, y2, dy, sp = 20, 20, 180, 10, 20, 15
+    local f1, f2 = 31, 20
+    local clr = 0x666633
 
-    local x1, x2, y1, y2, dy, sp = 13, 20, 180, 10, 20, 13
-    local f1, f2 = 31, 22
+
+    shape.rectangle(x2 * 16 - 8 * 16, y2 * 16 - 5 * 16, 167 * 16, 82 * 16, 7 * 16, 0x001300, 255)
 
     drawText(math.floor(fps) .. "FPS", 410, 3, 0x333333, 255, 23, 13)
 
-    drawText("A. BOROWSKI", x2, y2, 0x444444, 255, f2, sp)
-    drawText("P. CIEPLY", x2, y2 + 1 * dy, 0x444444, 255, f2, sp)
-    drawText("T. LASSAUD", x2, y2 + 2 * dy, 0x444444, 255, f2, sp)
-    drawText("M. RZYMSKI", x2, y2 + 3 * dy, 0x444444, 255, f2, sp)
+    drawText("A. BOROWSKI", x2, y2, clr, 255, f2, sp)
+    drawText("P. CIEPLY", x2, y2 + 1 * dy, clr, 255, f2, sp)
+    drawText("T. LASSAUD", x2, y2 + 2 * dy, clr, 255, f2, sp)
+    drawText("M. RZYMSKI", x2, y2 + 3 * dy, clr, 255, f2, sp)
     drawText("APLIKACJE SYSTEMOW WBUDOWANYCH 2013", x1 + x2, 250, 0xff3300, 255, 22, 12)
 
     --=================================--
@@ -48,6 +51,7 @@ while handle_interrupt() do
         ball(i)
     end
 
+    shape.rectangle(x1 * 16 - 8 * 16, y1 * 16 - 3 * 16, 286 * 16, 52 * 16, 7 * 16, 0x031212, 200)
     drawText("DAC SYSTEM ", x1, y1, 0xF57910, 255, f1, 26)
 
 

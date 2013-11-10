@@ -250,6 +250,7 @@ function reset(color)
     --drawCommands={}
     draw(clear_color_rgb1(color))
     draw(clear(1, 1, 1))
+    startDrawing() -- prepare drawing module to creating graphics
 end
 
 function draw(data)

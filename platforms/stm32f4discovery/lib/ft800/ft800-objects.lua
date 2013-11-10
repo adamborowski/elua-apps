@@ -21,7 +21,13 @@ function shape.circle(x, y, radius, color, alpha)
     drawVertex2f(x, y)
 end
 
-function shape.rectangle(x, y, w, h, color)
+function shape.rectangle(x, y, w, h, radius, color, alpha)
+    setPrimitive(PRIM.RECTS)
+    setAlpha(alpha)
+    setColor_rgb1(color)
+    if radius > 0 then setLineWidth(radius) end
+    drawVertex2f(x + radius, y + radius)
+    drawVertex2f(x + w - radius, y + h - radius)
 end
 
 
