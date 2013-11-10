@@ -1,40 +1,11 @@
---#define CLEAR_COLOR_RGB(red,green,blue) ((2UL<<24)|(((red)&255UL)<<16)|(((green)&255UL)<<8)|(((blue)&255UL)<<0))
 function clear_color_rgb3(r, g, b)
     return 0x02000000 + lsh(r, 16) + lsh(g, 8) + b
---    local result = lsh(2, 24)
---    result = result + lsh(band(b, 0xff), 16)
---    result = result + lsh(band(g, 0xff), 8)
---    result = result + band(r, 0xff)
---    return result
 end
 
 function clear_color_rgb1(rgb)
     return 0x02000000 + rgb
 end
 
---#define CLEAR_COLOR_RGB(red,green,blue) ((2UL<<24)|(((red)&255UL)<<16)|(((green)&255UL)<<8)|(((blue)&255UL)<<0))
---#define COLOR_RGB(red,green,blue)       ((4UL<<24)|(((red)&255UL)<<16)|(((green)&255UL)<<8)|(((blue)&255UL)<<0))
-function color_rgb3(r, g, b)
-    return 0x04000000 + lsh(r, 16) + lsh(g, 8) + b
-    --    local result = lsh(4, 24)
-    --    result = result + lsh(band(b, 0xff), 16)
-    --    result = result + lsh(band(g, 0xff), 8)
-    --    result = result + band(r, 0xff)
-    --    return result
-end
-
-function color_rgb1(rgb)
-    return 0x04000000 + rgb
-end
-
---#DEDFINE COLOR_A(alpha) ((16UL<<24)|(((alpha)&255UL)<<0))
--- value from 0 to 255
-function alpha(value)
-    return 0x10000000 + value
-end
-
-
---#define CLEAR(c,s,t) ((38UL<<24)|(((c)&1UL)<<2)|(((s)&1UL)<<1)|(((t)&1UL)<<0))
 function clear(c, s, t)
     return 0x26000000 + lsh(c, 2) + lsh(s, 1) + t
     --    local result = lsh(38, 24)
@@ -45,36 +16,90 @@ function clear(c, s, t)
     --    return result
 end
 
---[[
-Sets the size of drawn points. The width is the distance from the center of the point
-to the outermost drawn pixel, in units of 1/16 pixels. The valid range is from 16 to
-8191 with respect to 1/16th pixel unit.
- ]]
-function point_size(size)
-    return 0x0d000000 + size
-end
 
--- @width 1=1/6px, from 16 to 4095 pp
-function line_width(width)
-    return 0x06 + width
-end
 
---#define BEGIN(prim) ((31UL<<24)|(((prim)&15UL)<<0))
-function begin(prim)
-    return 0x1f000000 + prim
-end
 
 --[[
 Start the operation of graphics primitive at the specified coordinates. The handle and cell
 parameters will be ignored unless the graphics primitive is specified as bitmap by
 command BEGIN, prior to this command.
  ]]
-function vertex2ii(x, y, handle, cell) -- - 2147483648 == 0x80000000 why?
-    return -2147483648 + lsh(x, 21) + lsh(y, 12) + lsh(handle, 7) + cell
-    --    return bor(lsh(2, 30), lsh(band(x, 511), 21), lsh(band(y, 511), 12), lsh(band(handle, 31), 7), band(cell, 127))
+local x800000 = lsh(2, 30) --  0x80000000 == -2147483648 why?
+function drawVertex2ii(x, y, handle, cell)
+    draw(x800000 + lsh(x, 21) + lsh(y, 12) + lsh(handle, 7) + cell)
 end
 
-function d_end() -- begin(PRIMITIVE) cmd cmd cmd ... end()
-    return 0x21000000
+--[[
+Start the operation of graphics primitives at the specified screen coordinate, in 1/16th
+pixel precision.
+ ]]
+function drawVertex2f(x, y)
+    draw(0x40000000 + lsh(x, 15) + y)
 end
 
+--#define BEGIN(prim) ((31UL<<24)|(((prim)&15UL)<<0))
+local _primitive
+function setPrimitive(prim)
+    if _primitive ~= prim then
+        draw(0x21000000) -- END commend must be sent before begin
+        draw(0x1f000000 + prim)
+        _primitive = prim
+    end
+end
+
+function finishDrawing()
+    if _primitive ~= nil then
+        draw(0x21000000) -- end primitive drawing if already drawing
+        _primitive = nil
+    end
+end
+
+local _color
+
+function setColor_rgb3(r, g, b)
+    local val = b + lsh(g, 8) + lsh(r, 16)
+    if _color ~= val then
+        draw(0x04000000 + val)
+        _color = color
+    end
+end
+
+function setColor_rgb1(val)
+    if _color ~= val then
+        draw(0x04000000 + val)
+        _color = color
+    end
+end
+
+
+local _alpha
+-- value from 0 to 255
+function setAlpha(val)
+    if _alpha ~= val then
+        draw(0x10000000 + val)
+        _alpha = val
+    end
+end
+
+
+local _point_size
+--[[
+Sets the size of drawn points. The width is the distance from the center of the point
+to the outermost drawn pixel, in units of 1/16 pixels. The valid range is from 16 to
+8191 with respect to 1/16th pixel unit.
+ ]]
+function setPointSize(size)
+    if _point_size ~= size then
+        draw(0x0d000000 + size)
+        _point_size = size
+    end
+end
+
+local _lineWidth
+-- @width 1=1/6px, from 16 to 4095 pp
+function setLineWidth(width)
+    if _lineWidth ~= width then
+        draw(0x06000000 + width)
+        _lineWidth = width
+    end
+end

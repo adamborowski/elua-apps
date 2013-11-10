@@ -11,9 +11,10 @@ function handle_interrupt()
     end
     return true --this allows to continue looping
 end
+
 --return byte at position LSB
 function bat(number, position)
-    return band(rsh(number, position*8), 0xff)
+    return band(rsh(number, position * 8), 0xff)
 end
 
 function table_slice(values, i1, i2)
@@ -39,7 +40,7 @@ function table_slice(values, i1, i2)
 end
 
 
----- MEASURE FPS ---------
+--- - MEASURE FPS ---------
 
 local fpsmsr_lastTmr = tmr.read(1)
 local fpsmsr_fps = 0
@@ -65,8 +66,13 @@ function measureFPS()
     fpsmsr_lastTmr = tmr.read(1)
     return fpsmsr_bufferum / fpsmsr_fpscnt
 end
+
+function rgb(r, g, b)
+    return b + lsh(g, 8) + lsh(r, 16)
+end
+
 ------------------------------
 
-print ("UTILS MODULE FILE LOADED.")
+print("UTILS MODULE FILE LOADED.")
 
 

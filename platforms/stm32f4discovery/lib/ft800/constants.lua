@@ -206,7 +206,7 @@ F = {
 }
 --display list's primitive types
 PRIM= {
-    BITMAP = 0,
+    BITMAP = 1,
     POINTS = 2,
     LINES = 3,
     LINE_STRIP = 4,

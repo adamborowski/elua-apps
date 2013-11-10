@@ -9,26 +9,29 @@ local state = {
 }
 
 
+--[[
+    @param x 1/16 px
+    @param y 1/16 px
+ ]]
+function shape.circle(x, y, radius, color, alpha)
+    setPrimitive(PRIM.POINTS)
+    setAlpha(alpha)
+    setColor_rgb1(color)
+    setPointSize(radius)
+    drawVertex2f(x, y)
+end
 
-local function startPrimitive(primitive)
+function shape.rectangle(x, y, w, h, color)
 end
 
 
-function shape.begin()
-end
 
-function shape.finish()
-end
-
-function shape.circle(color)
-end
-
-
-
-function makeText(str, x, y, color, font, letterspacing)
-    draw(color_rgb1(color))
+function drawText(str, x, y, color, alpha, font, letterspacing)
+    setAlpha(alpha)
+    setColor_rgb1(color)
+    setPrimitive(PRIM.BITMAP)
     for i = 1, string.len(str) do
-        draw(vertex2ii(x + (i - 1) * letterspacing, y, font, string.byte(str, i)))
+        drawVertex2ii(x + (i - 1) * letterspacing, y, font, string.byte(str, i))
     end
 end
 

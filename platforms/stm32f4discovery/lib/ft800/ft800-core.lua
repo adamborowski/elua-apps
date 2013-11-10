@@ -240,6 +240,9 @@ end
 
 local drawCommands = {} -- growing table but reused
 local drawCommandCounter = 0
+function getNumCommands()
+    return drawCommandCounter/4
+end
 function reset(color)
     drawCommandCounter = 0
     draw(clear_color_rgb1(color))
@@ -257,6 +260,7 @@ end
 
 
 function commit()
+    finishDrawing() --- ft800-drawing must do some finish job
     draw(0) -- end()
     wrn(F.RAM_DL, drawCommands, drawCommandCounter) --flush all cached commands in one spi transaction
     wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
