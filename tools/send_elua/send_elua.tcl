@@ -16,7 +16,8 @@ foreach line $lines {
 
 puts "    visit: [color {1;5;36} http://github.com/adamborowski/elua-apps/]"
 
-set fileName [file normalize $argv]
+set fileName [file normalize [lindex $argv 0]]
+set luacOpt [lindex $argv 1]
 
 #regexp {(.*)\.[^.]+$} $fileName res result
 #set outName $result.out
@@ -61,7 +62,8 @@ fileevent $fh readable {
     set income [read $fh]
     if {[regexp {CC} $income]} {
 	file delete -force $outName
-	set cmd "~/elua/luac.cross -cci 32 -ccn float 64 -cce little -o $outName $modules"
+	set cmd "~/elua/luac.cross $luacOpt -cci 32 -ccn float 64 -cce little $luacOpt -o $outName $modules"
+	set cmd [regexp -inline -all -- {\S+} $cmd]
 	exec {*}[split $cmd " "]
 	# file compression info
 	set totalSize 0

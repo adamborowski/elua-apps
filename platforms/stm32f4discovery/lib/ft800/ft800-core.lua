@@ -232,3 +232,38 @@ function ft800_setup(SMALL_LCD)
     ft800_display_config(SMALL_LCD) -- true is small lcs
     ft800_display_start()
 end
+
+
+--[[
+-- DISPLAY LIST MANAGEMENT
+ ]]
+
+local drawCommands = {} -- growing table but reused
+local drawCommandCounter = 0
+function reset(color)
+    drawCommandCounter = 0
+    draw(clear_color_rgb1(color))
+    draw(clear(1, 1, 1))
+end
+
+function draw(data)
+    --indexing from 1, so first is +1 not +0
+    drawCommands[drawCommandCounter + 1] = bat(data, 0)
+    drawCommands[drawCommandCounter + 2] = bat(data, 1)
+    drawCommands[drawCommandCounter + 3] = bat(data, 2)
+    drawCommands[drawCommandCounter + 4] = bat(data, 3)
+    drawCommandCounter = drawCommandCounter + 4
+end
+
+
+function commit()
+    draw(0) -- end()
+    wrn(F.RAM_DL, drawCommands, drawCommandCounter) --flush all cached commands in one spi transaction
+    wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
+end
+--[[
+ @value from 0 to 128
+ ]]
+function setBrightness(value)
+    wr8(F.REG_PWM_DUTY, value)
+end

@@ -204,4 +204,16 @@ F = {
 	REG_VSYNC0 = 1057864,
 	REG_VSYNC1 = 1057868
 }
+--display list's primitive types
+PRIM= {
+    BITMAP = 0,
+    POINTS = 2,
+    LINES = 3,
+    LINE_STRIP = 4,
+    EDGE_STRIP_R = 5, --right side
+    EDGE_STRIP_L = 6, --left side
+    EDGE_STRIP_A = 7,--edge strip above
+    EDGE_STRIP_B = 8,--edge strip below
+    RECTS = 9
+}
 print("LUA CONSTANTS LOADED.")

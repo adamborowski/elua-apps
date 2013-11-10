@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07112ef8-51b5-46c0-96b9-057c19c2d637" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/big-config.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/device/WQVGA.lua" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/constants.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/ft800-drawing.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/ft800.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/small-config.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/device/QVGA.lua" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/spi.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/utils/spi.lua" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/utils.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/utils/utils.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display_big.modules" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display_big.modules" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display_small.modules" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display_small.modules" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tools/send_elua/send_elua.tcl" afterPath="$PROJECT_DIR$/tools/send_elua/send_elua.tcl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="elua-apps.iws" />
@@ -38,7 +34,7 @@
       <file leaf-file-name="display.lua" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="8" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0" vertical-offset="921" max-vertical-offset="1368">
+            <state line="47" column="51" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.0" vertical-offset="1267" max-vertical-offset="1710">
               <folding />
             </state>
           </provider>
@@ -47,7 +43,16 @@
       <file leaf-file-name="ft800-objects.lua" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="65" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="648">
+            <state line="1" column="0" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants.lua" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="206" column="20" selection-start="4655" selection-end="4655" vertical-scroll-proportion="0.0" vertical-offset="3515" max-vertical-offset="4032">
               <folding />
             </state>
           </provider>
@@ -56,7 +61,7 @@
       <file leaf-file-name="ft800-core.lua" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="15" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="4302">
+            <state line="267" column="30" selection-start="8585" selection-end="8585" vertical-scroll-proportion="0.0" vertical-offset="4518" max-vertical-offset="4950">
               <folding />
             </state>
           </provider>
@@ -65,7 +70,7 @@
       <file leaf-file-name="ft800-drawing.lua" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="0" selection-start="2603" selection-end="2603" vertical-scroll-proportion="1.1296296" vertical-offset="1006" max-vertical-offset="1602">
+            <state line="18" column="18" selection-start="781" selection-end="781" vertical-scroll-proportion="0.75348836" vertical-offset="0" max-vertical-offset="1548">
               <folding />
             </state>
           </provider>
@@ -94,21 +99,21 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/small-config.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/big-config.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display_small.modules.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/misc/spi.modules" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/misc/spi2.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/ft800.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/utils.lua" />
-        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/ft800-drawing.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/ft800-objects.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/spi.lua" />
-        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" />
-        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display_small.modules" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display_big.modules" />
+        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" />
+        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" />
+        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua" />
+        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" />
       </list>
     </option>
@@ -434,11 +439,11 @@
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32382312" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32474965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2641369" sideWeight="0.6761769" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2641369" sideWeight="0.67525035" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3306773" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -467,7 +472,8 @@
     <MESSAGE value="dummy commit" />
     <MESSAGE value="fixed display list lagging by sending all list via one &quot;HOST WRITE&quot; spi transaction instead of writing via spi for every display command,  one by one" />
     <MESSAGE value="some refactorings" />
-    <option name="LAST_COMMIT_MESSAGE" value="some refactorings" />
+    <MESSAGE value="some refactorings, created library ft800" />
+    <option name="LAST_COMMIT_MESSAGE" value="some refactorings, created library ft800" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -525,13 +531,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="14" selection-start="1965" selection-end="1970" vertical-scroll-proportion="1.1050119" vertical-offset="1139" max-vertical-offset="3816">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/device/QVGA.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="14" selection-start="14" selection-end="14" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="446">
@@ -553,30 +552,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="20" selection-start="4655" selection-end="4655" vertical-scroll-proportion="0.0" vertical-offset="3515" max-vertical-offset="4032">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="8" selection-start="2032" selection-end="2032" vertical-scroll-proportion="0.0" vertical-offset="921" max-vertical-offset="1368">
+        <state line="47" column="51" selection-start="1231" selection-end="1231" vertical-scroll-proportion="0.0" vertical-offset="1267" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="65" selection-start="644" selection-end="644" vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="648">
+        <state line="1" column="0" selection-start="11" selection-end="11" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="15" selection-start="1186" selection-end="1186" vertical-scroll-proportion="0.0" vertical-offset="844" max-vertical-offset="4302">
+        <state line="267" column="30" selection-start="8585" selection-end="8585" vertical-scroll-proportion="0.0" vertical-offset="4518" max-vertical-offset="4950">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="2603" selection-end="2603" vertical-scroll-proportion="1.1296296" vertical-offset="1006" max-vertical-offset="1602">
+        <state line="18" column="18" selection-start="781" selection-end="781" vertical-scroll-proportion="0.75348836" vertical-offset="0" max-vertical-offset="1548">
           <folding />
         </state>
       </provider>
