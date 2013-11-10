@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07112ef8-51b5-46c0-96b9-057c19c2d637" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="elua-apps.iws" />
@@ -25,19 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="display.lua" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="display.lua" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="0" selection-start="860" selection-end="860" vertical-scroll-proportion="0.0" vertical-offset="373" max-vertical-offset="1260">
+            <state line="71" column="41" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.83480173" vertical-offset="899" max-vertical-offset="1584">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ft800-drawing.lua" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ft800-drawing.lua" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="41" selection-start="572" selection-end="572" vertical-scroll-proportion="0.51367784" vertical-offset="148" max-vertical-offset="1836">
+            <state line="25" column="3" selection-start="529" selection-end="529" vertical-scroll-proportion="-16.666666" vertical-offset="0" max-vertical-offset="1836">
               <folding />
             </state>
           </provider>
@@ -46,7 +47,7 @@
       <file leaf-file-name="ft800-objects.lua" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="11" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="260" max-vertical-offset="918">
+            <state line="19" column="11" selection-start="555" selection-end="555" vertical-scroll-proportion="0.0" vertical-offset="422" max-vertical-offset="918">
               <folding />
             </state>
           </provider>
@@ -97,9 +98,9 @@
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/utils/utils.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" />
-        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" />
+        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
       </list>
     </option>
   </component>
@@ -422,14 +423,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-5" y="-10" width="1450" height="866" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277311" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32474965" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32352942" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25466284" sideWeight="0.6722689" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25466284" sideWeight="0.6764706" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3306773" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -548,16 +549,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
+    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="0" selection-start="860" selection-end="860" vertical-scroll-proportion="0.0" vertical-offset="373" max-vertical-offset="1260">
+        <state line="252" column="65" selection-start="8265" selection-end="8265" vertical-scroll-proportion="0.26696834" vertical-offset="4418" max-vertical-offset="5094">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua">
+    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="252" column="65" selection-start="8265" selection-end="8265" vertical-scroll-proportion="0.26696834" vertical-offset="4418" max-vertical-offset="5094">
+        <state line="25" column="3" selection-start="529" selection-end="529" vertical-scroll-proportion="-16.666666" vertical-offset="0" max-vertical-offset="1836">
           <folding />
         </state>
       </provider>
@@ -569,9 +570,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua">
+    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="41" selection-start="572" selection-end="572" vertical-scroll-proportion="0.51367784" vertical-offset="148" max-vertical-offset="1836">
+        <state line="71" column="41" selection-start="2123" selection-end="2123" vertical-scroll-proportion="0.83480173" vertical-offset="899" max-vertical-offset="1584">
           <folding />
         </state>
       </provider>

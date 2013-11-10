@@ -14,6 +14,11 @@ end
 ft800_setup(SMALL_LCD) -- all things to get LCD display ready for drawing
 c = 0
 brightness = 0
+local direction = 1
+directionChar = ">"
+local pressed = false
+local speed = 0.004
+pio.pin.setdir(pio.INPUT, pio.PA_0)
 while handle_interrupt() do
     --- BRIGHTNESS FADE IN ---
 
@@ -55,10 +60,23 @@ while handle_interrupt() do
     drawText("DAC SYSTEM ", x1, y1, 0xF57910, 255, f1, 26)
 
 
+    new_pressed = pio.pin.getval(pio.PA_0) == 1
+
+    if new_pressed and not pressed then
+        direction = -direction
+        directionChar = direction > 0 and ">" or "<"
+    end
+    pressed = new_pressed
+    --
+    if pressed then
+        speed = speed + 0.0005 * direction
+    end
+
+    shape.rectangle(448 * 16, 58 * 16, 22 * 16, 22 * 16, 3 * 16, (pressed and 0xcc00cc or 0x450045), 200)
+    drawText(directionChar, 453, 53, 0x000000, 255, 29, 10)
     drawText(getNumCommands() .. "#", 431, 31, 0x774422, 255, 21, 10)
     commit()
-
-    c = c + 0.008
+    c = c + speed
 end
 
 
