@@ -14,6 +14,7 @@
 $ elua-apps/tools/send_elua/send_elua.tcl elua-apps/platforms/stm32f4discovery/ft800-helloworld/display.modules
 
 or if you want to exclude debugging information (less size but no file and line information when error occures)
+
 $ elua-apps/tools/send_elua/send_elua.tcl elua-apps/platforms/stm32f4discovery/ft800-helloworld/display.modules **-s**
 
 ### lines of file display.modules 
