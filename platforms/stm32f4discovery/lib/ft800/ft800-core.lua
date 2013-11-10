@@ -55,12 +55,13 @@ end
 @param address 22 bit adress
 @ param data array of bytes
  ]]
-function wrn(address, bytes, howMuch)
+function wrn(address, bytes)
     csopen()
     addr1 = rsh(address, 16) + 128
     addr2 = band(rsh(address, 8), 0xff)
     addr3 = band(address, 0xff)
-    spi.write(sid, addr1, addr2, addr3, unpack(table_slice(bytes, 1, howMuch)))
+--    spi.write(sid, addr1, addr2, addr3, unpack(table_slice(bytes, 1, howMuch)))
+    spi.write(sid, addr1, addr2, addr3, unpack(bytes))
     csclose()
 end
 
@@ -245,6 +246,8 @@ function getNumCommands()
 end
 function reset(color)
     drawCommandCounter = 0
+    --FIXME now it is faster to not create new table but now it sends possibly unused commands when next displaylist is smaller
+    --drawCommands={}
     draw(clear_color_rgb1(color))
     draw(clear(1, 1, 1))
 end
@@ -262,7 +265,7 @@ end
 function commit()
     finishDrawing() --- ft800-drawing must do some finish job
     draw(0) -- end()
-    wrn(F.RAM_DL, drawCommands, drawCommandCounter) --flush all cached commands in one spi transaction
+    wrn(F.RAM_DL, drawCommands) --flush all cached commands in one spi transaction
     wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
 end
 --[[

@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="07112ef8-51b5-46c0-96b9-057c19c2d637" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua" />
+    <list default="true" id="07112ef8-51b5-46c0-96b9-057c19c2d637" name="Default" comment="updated lib ft800 api">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/utils/utils.lua" afterPath="$PROJECT_DIR$/platforms/stm32f4discovery/lib/utils/utils.lua" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="elua-apps.iws" />
@@ -34,16 +30,7 @@
       <file leaf-file-name="display.lua" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="5" selection-start="461" selection-end="461" vertical-scroll-proportion="0.57272726" vertical-offset="0" max-vertical-offset="1386">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ft800-core.lua" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="211" column="13" selection-start="6666" selection-end="6666" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5022">
+            <state line="7" column="22" selection-start="183" selection-end="183" vertical-scroll-proportion="0.20879121" vertical-offset="31" max-vertical-offset="1188">
               <folding />
             </state>
           </provider>
@@ -121,18 +108,19 @@
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display_small.modules" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display_big.modules" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/constants.lua" />
-        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-drawing.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/utils/utils.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-objects.lua" />
+        <option value="$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua" />
         <option value="$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
-    <option name="width" value="1400" />
-    <option name="height" value="851" />
+    <option name="x" value="-5" />
+    <option name="y" value="-10" />
+    <option name="width" value="1450" />
+    <option name="height" value="866" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -446,7 +434,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="0" width="1400" height="851" extended-state="4" />
+    <frame x="-5" y="-10" width="1450" height="866" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -454,13 +442,13 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2641369" sideWeight="0.6709585" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25466284" sideWeight="0.67787117" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3306773" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32947233" sideWeight="0.6706349" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32904148" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32212886" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -485,7 +473,8 @@
     <MESSAGE value="some refactorings" />
     <MESSAGE value="some refactorings, created library ft800" />
     <MESSAGE value="some code updates in lib ft800" />
-    <option name="LAST_COMMIT_MESSAGE" value="some code updates in lib ft800" />
+    <MESSAGE value="updated lib ft800 api" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated lib ft800 api" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -564,13 +553,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="211" column="13" selection-start="6666" selection-end="6666" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5022">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/utils/utils.lua">
       <provider selected="true" editor-type-id="text-editor">
         <state line="70" column="36" selection-start="1704" selection-end="1704" vertical-scroll-proportion="0.6206089" vertical-offset="995" max-vertical-offset="1512">
@@ -603,9 +585,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/lib/ft800/ft800-core.lua">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="258" column="31" selection-start="8413" selection-end="8413" vertical-scroll-proportion="1.3665159" vertical-offset="4040" max-vertical-offset="5076">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/platforms/stm32f4discovery/ft800-helloworld/display.lua">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="5" selection-start="461" selection-end="461" vertical-scroll-proportion="0.57272726" vertical-offset="0" max-vertical-offset="1386">
+        <state line="7" column="22" selection-start="183" selection-end="183" vertical-scroll-proportion="0.20879121" vertical-offset="31" max-vertical-offset="1188">
           <folding />
         </state>
       </provider>
