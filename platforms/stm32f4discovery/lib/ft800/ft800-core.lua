@@ -51,7 +51,10 @@ function wr8(address, data)
     csclose()
 end
 
-
+--[[
+@param address 22 bit adress
+@ param data array of bytes
+ ]]
 function wrn(address, bytes, howMuch)
     csopen()
     addr1 = rsh(address, 16) + 128
@@ -109,15 +112,15 @@ function ft800_init()
     pio.pin.setdir(pio.OUTPUT, pdPin)
     --    1) Reset the FT800
     --      -  Drive PD_N low
-    print("pin low")
+--    print("pin low")
     pio.pin.setlow(pdPin)
-    print("pin low set")
+--    print("pin low set")
     --      -  Wait 20ms
     tmr.delay(0, 20000)
     --      - back to high state
-    print("pin high")
+--    print("pin high")
     pio.pin.sethigh(pdPin)
-    print("pin high set")
+--    print("pin high set")
     --      -  Wait for 20 ms
     tmr.delay(0, 20000)
     --    2) Issue the Wake - up command
@@ -145,7 +148,6 @@ function ft800_init()
     --      -  Write 0x80 to location 0x102490 << 0x80 = 1<<7
     --?????????????????????????????????????????????????????????????
     wr8(F.REG_GPIO, bor(0x80, rd8(F.REG_GPIO))) --;//enable display bit
-
 end
 
 function ft800_display_config(SMALL_LCD)
@@ -203,7 +205,7 @@ function ft800_display_config(SMALL_LCD)
     --[[ 3) Enable or disable REG_CSPREAD with a value of 01h or 00h, respectively.
     -- Enabling REG_CSPREAD will offset the R, G and B output bits so all they do not all change at the same time
      ]]
---    wr8(F.REG_SWIZZLE, 0)
+    --    wr8(F.REG_SWIZZLE, 0)
     wr8(F.REG_CSPREAD, 0)
 end
 

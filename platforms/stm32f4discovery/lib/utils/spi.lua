@@ -1,5 +1,4 @@
 csPin = pio.PB_11
-
 pio.pin.setdir(pio.OUTPUT, csPin)
 sid = 1
 

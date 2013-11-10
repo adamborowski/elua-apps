@@ -53,12 +53,11 @@ function vertex2ii(x, y, handle, cell)
     return bor(lsh(2, 30), lsh(band(x, 511), 21), lsh(band(y, 511), 12), lsh(band(handle, 31), 7), band(cell, 127))
 end
 
-function d_end()
+function d_end() -- begin(PRIMITIVE) cmd cmd cmd ... end()
     return 0x21000000
 end
 
 
-cmdAddress = F.RAM_DL
 local drawCommands = {} -- growing table but reused
 local drawCommandCounter = 0
 function reset(color)
@@ -76,21 +75,9 @@ function draw(data)
     drawCommandCounter = drawCommandCounter + 4
 end
 
-function draw_small(data)
-    wr16(cmdAddress, data)
-    cmdAddress = cmdAddress + 2
-end
 
 function commit()
-
-    draw(0)
-    wrn(cmdAddress, drawCommands, drawCommandCounter) --flush all cached commands in one spi transaction
+    draw(0) -- end()
+    wrn(F.RAM_DL, drawCommands, drawCommandCounter) --flush all cached commands in one spi transaction
     wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
-end
-
-function makeText(str, x, y, color, font, letterspacing)
-    draw(color_rgb1(color))
-    for i = 1, string.len(str) do
-        draw(vertex2ii(x + (i - 1) * letterspacing, y, font, string.byte(str, i)))
-    end
 end
