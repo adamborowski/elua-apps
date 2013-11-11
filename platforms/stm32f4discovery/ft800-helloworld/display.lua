@@ -64,12 +64,15 @@ while handle_interrupt() do
 
     if new_pressed and not pressed then
         direction = -direction
-        directionChar = direction > 0 and ">" or "<"
+
     end
     pressed = new_pressed
     --
     if pressed then
         speed = speed + 0.0005 * direction
+        directionChar = direction > 0 and ">" or "<"
+    else
+        directionChar = direction > 0 and "<" or ">"
     end
 
     shape.rectangle(448 * 16, 58 * 16, 22 * 16, 22 * 16, 3 * 16, (pressed and 0xcc00cc or 0x450045), 200)
