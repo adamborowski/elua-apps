@@ -1,5 +1,5 @@
 #! /bin/bash
-cd ../elua
+cd ~/elua
 if [ -f elua_lua_stm32f4discovery.elf ] ; then
 rm elua_lua_stm32f4discovery.elf
 fi
@@ -8,7 +8,7 @@ rm elua_lua_stm32f4discovery.bin
 fi
 ./build_elua.lua board=stm32f4discovery
 arm-none-eabi-objcopy -O binary elua_lua_stm32f4discovery.elf elua_lua_stm32f4discovery.bin
- 
+
  openocd    -f /usr/share/openocd/scripts/board/stm32f4discovery.cfg \
  -c "init"\
  -c "reset halt"\
@@ -23,6 +23,3 @@ arm-none-eabi-objcopy -O binary elua_lua_stm32f4discovery.elf elua_lua_stm32f4di
  -c "echo \"--- Done\""\
  -c "resume"\
  -c "shutdown"\
-  
- 
-#EOF

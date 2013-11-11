@@ -1,0 +1,1 @@
+SMALL_LCD=false
