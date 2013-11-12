@@ -6,29 +6,47 @@ function e(ratio) -- values from 0 to 1 in looping shape
 end
 
 local ballStartY = 450
+local width, height, sx, sy = nil, nil, LCD_PARAMS.width / 2, LCD_PARAMS.height / 2
 function ball(s) --s  = depth phase
-    shape.circle(16 * (e(c + s) * 400 + 30), 5 * s * 16 * 50 + ballStartY, 300 * e(c + s + 0.25) + 200,
+    shape.circle(16 * ((e(c + s) - 0.5) * width + sx), ((s - 0.5) * height + sy) * 16, 300 * e(c + s + 0.25) + 200,
         rgb(e(c + s + 0) * 0xcc, e(c + s + 0.3) * 0xcc, e(c + s + 0.6) * 0xcc), e(c + s + 0.25) * 0xcc + 0x33)
 end
 
 ft800_setup(SMALL_LCD) -- all things to get LCD display ready for drawing
+accelerometer.init()
+
+
+local accelerometerXBuffer = utils.buffer.new(20) --new buffer of specified size
+local accelerometerYBuffer = utils.buffer.new(20) --new buffer of specified size
+local roundingError = 500
 c = 0
 brightness = 0
 local direction = 1
-directionChar = ">"
+directionChar = "<"
 local pressed = false
-local speed = 0.004
+local speed = -0.004
 pio.pin.setdir(pio.INPUT, pio.PA_0)
+local xCalib, yCalib, zCalib --
+for i = 1, accelerometerXBuffer.size do --calibration
+    xCalib, yCalib, zCalib = accelerometer.get()
+    xCalib = accelerometerXBuffer.put(xCalib) -- replace with buffered value
+    yCalib = accelerometerYBuffer.put(yCalib) -- replace with buffered value
+    tmr.delay(0, 10000)
+end
 while handle_interrupt() do
+    ax, ay, az = accelerometer.get()
+    ax = accelerometerXBuffer.put(ax) -- replace with buffered value
+    ay = accelerometerYBuffer.put(ay) -- replace with buffered value
+    width = math.floor((ax - xCalib) * roundingError) / roundingError * LCD_PARAMS.width * 7 -- - LCD_PARAMS.width * 0.8 -- board stands unevenly so -0.054
+    height = math.floor((ay - yCalib) * roundingError) / roundingError * LCD_PARAMS.height * 7 -- + LCD_PARAMS.height * 0.8
     --- BRIGHTNESS FADE IN ---
 
-    if brightness < 110 then
-        if c > 0.06 then
-            brightness = brightness + 1
-        end
-        setBrightness(brightness)
-    end
-
+    --    if brightness < 110 then
+    --        if c > 0.06 then
+    --            brightness = brightness + 1
+    --        end
+    --        setBrightness(brightness)
+    --    end
 
     -----------------------------
     fps = measureFPS()
@@ -64,15 +82,14 @@ while handle_interrupt() do
 
     if new_pressed and not pressed then
         direction = -direction
-
     end
     pressed = new_pressed
     --
     if pressed then
         speed = speed + 0.0005 * direction
-        directionChar = direction > 0 and ">" or "<"
+        directionChar = direction < 0 and ">" or "<"
     else
-        directionChar = direction > 0 and "<" or ">"
+        directionChar = direction < 0 and "<" or ">"
     end
 
     shape.rectangle(448 * 16, 58 * 16, 22 * 16, 22 * 16, 3 * 16, (pressed and 0xcc00cc or 0x450045), 200)

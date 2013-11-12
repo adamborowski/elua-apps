@@ -81,10 +81,10 @@ fileevent $fh readable {
 	$outName \
 	< $port > $port &
 	
-    } elseif {[regexp {eLua#} $income]} {
+    } elseif {[regexp {^\W*eLua#\W*$} $income]} {
 	puts $fh " "
-	after 300 {exit 0}
-	#exit 0
+	#after 300 {exit 0}
+	exit 0
     }
     #puts [regexp {\s*} $income]
     if {[string trim $income]!=""} {

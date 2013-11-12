@@ -109,7 +109,6 @@ end
 
 function ft800_init()
     pdPin = pio.PE_6
-    print(10000000)
     pio.pin.setdir(pio.OUTPUT, pdPin)
     --    1) Reset the FT800
     --      -  Drive PD_N low
@@ -140,6 +139,7 @@ function ft800_init()
     --      -  Read one byte from location 0x102400
     --      -  Check for the value 0x7C
     local dev_id
+
     while true do
         dev_id = rd8(F.REG_ID)
         if dev_id == 0x7c then break end

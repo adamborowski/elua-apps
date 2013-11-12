@@ -71,8 +71,33 @@ function rgb(r, g, b)
     return b + lsh(g, 8) + lsh(r, 16)
 end
 
-------------------------------
+------------------------------ buffer with AVG aggregation
+utils = {}
+utils.buffer = {}
+function utils.buffer.new(size)
+    local obj = {}
+    local data = {}
+    local sum=0
+    local count = 0
+    obj.put = function(val)
+        if count < size then -- as long as buffer increasing we can increase sum and return sum/count
+            count = count + 1
+            data[count] = val
+            sum = sum + val
+            return sum / count
+        end
+        -- buffer do not increase - recalculate avg
+        sum = 0
+        data[count + 1] = val -- this external value will be moved in loop below
+        for i = 1, size do
+            data[i] = data[i + 1]
+            sum = sum + data[i]
+        end
+
+        return sum / count
+    end
+    obj.size=size
+    return obj
+end
 
 print("UTILS MODULE FILE LOADED.")
-
-

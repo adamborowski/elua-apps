@@ -5,4 +5,5 @@
 ../lib/ft800/ft800-core.lua
 ../lib/ft800/ft800-drawing.lua
 ../lib/ft800/ft800-objects.lua
+../lib/accelerometer/accelerometer.lua
 display.lua
