@@ -48,16 +48,16 @@ pio.pin.setdir(pio.INPUT, pio.PA_0)
 
 
 
-    drawText("A. BOROWSKI", x2, y2, clr, 255, f2, sp)
+    --drawText("A. BOROWSKI", x2, y2, clr, 255, f2, sp)
     --drawText("P. CIEPLY", x2, y2 + 1 * dy, clr, 255, f2, sp)
     --drawText("T. LASSAUD", x2, y2 + 2 * dy, clr, 255, f2, sp)
     --drawText("M. RZYMSKI", x2, y2 + 3 * dy, clr, 255, f2, sp)
     --drawText("APLIKACJE SYSTEMOW WBUDOWANYCH 2013", x1 + x2, 250, 0xff3300, 255, 22, 12)
 
     --=================================--
-    commit()
-
-  --  play_sound(0x3C,0xFF,0x44)
+   -- commit()
+    --C4 sound, max volume, organ
+    play_sound(0x3C,0xFF,0x44)
 
     --print("sound status: ", sound_status())
 
