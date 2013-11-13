@@ -12,16 +12,7 @@ print("audio.lua example")
 ft800_setup(SMALL_LCD) -- all things to get LCD display ready for drawing
 
 
-
-local roundingError = 500
-c = 0
-brightness = 0
-local direction = 1
-directionChar = "<"
-local pressed = false
-local speed = -0.004
 pio.pin.setdir(pio.INPUT, pio.PA_0)
-
 
 
     --- BRIGHTNESS FADE IN ---
@@ -36,8 +27,6 @@ pio.pin.setdir(pio.INPUT, pio.PA_0)
     -----------------------------
 
     reset((0x000000)) --8 bytes - param background color
-
-
 
     local x1, x2, y1, y2, dy, sp = 20, 20, 180, 10, 20, 15
     local f1, f2 = 31, 20
