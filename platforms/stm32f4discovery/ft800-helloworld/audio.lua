@@ -58,7 +58,6 @@ pio.pin.setdir(pio.INPUT, pio.PA_0)
    -- commit()
     --C4 sound, max volume, organ
     play_sound(0x3C,0xFF,0x44)
-wr8(F.REG_PLAY, 1)
     --print("sound status: ", sound_status())
 
     --tmr.delay( 0, 800000 )
