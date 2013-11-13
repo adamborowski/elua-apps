@@ -58,12 +58,15 @@ pio.pin.setdir(pio.INPUT, pio.PA_0)
    -- commit()
     --C4 sound, max volume, organ
     play_sound(0x3C,0xFF,0x44)
-
+wr8(F.REG_PLAY, 1)
     --print("sound status: ", sound_status())
 
     --tmr.delay( 0, 800000 )
-
+    print("---debug\n sound regs")
+    print(" reg_vol_sound: ", rd8(F.REG_VOL_SOUND))
+    print(" reg_sound: byte1: ", bat(rd16(F.REG_SOUND),2), " byte0: ", bat(rd16(F.REG_SOUND),1))
+    print(" reg_play: ", F.REG_PLAY)
     print("sound status: ", sound_status())
-
+    print("---debug")
 
 print("end of audio.lua execution")
