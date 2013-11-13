@@ -57,11 +57,11 @@ pio.pin.setdir(pio.INPUT, pio.PA_0)
     --=================================--
     commit()
 
-    play_sound(0x3C,0xFF,0x44)
+  --  play_sound(0x3C,0xFF,0x44)
 
-    print("sound status: ", sound_status())
+    --print("sound status: ", sound_status())
 
-    tmr.delay( 0, 800000 )
+    --tmr.delay( 0, 800000 )
 
     print("sound status: ", sound_status())
 

@@ -8,13 +8,13 @@
 
 --play sound
 function play_sound(sound, volume_level, instrument)
-    wr8(F.REG_VOL_SOUND, volume_level)  --  set the volume to maximum
-    wr16(F.REG_SOUND, bor(lsh(sound,8), instrument))  -- C8 MIDI note on xylophone
-    wr8(F.REG_PLAY, 1)       -- play the sound
+    wr8(F.REG_VOL_SOUND, volume_level)
+    wr16(F.REG_SOUND, bor(lsh(sound,8), instrument))
+    wr8(F.REG_PLAY, 1)
 end
---wr8(REG_VOL_SOUND,0xFF);
---wr16(REG_SOUND,(0x6C<<8)|0x41);
---wr8(REG_PLAY,1);
+--wr8(REG_VOL_SOUND,0xFF); --  set the volume to maximum
+--wr16(REG_SOUND,(0x6C<<8)|0x41); -- C8 MIDI note on xylophone
+--wr8(REG_PLAY,1);  -- play the sound
 
 
 --check sound status
