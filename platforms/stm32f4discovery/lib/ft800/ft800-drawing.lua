@@ -11,11 +11,11 @@ function clear(c, s, t)
 end
 
 local state = {
-    lineWidth = 0,
-    pointSize = 16,
-    alpha = 255,
-    color = 0xffffff,
-    primitive = PRIM.POINTS
+    lineWidth = nil,
+    pointSize = nil,
+    alpha = nil,
+    color = nil,
+    primitive = nil
 }
 
 function finishDrawing()
