@@ -60,7 +60,11 @@ function wrn(address, bytes)
     addr1 = rsh(address, 16) + 128
     addr2 = band(rsh(address, 8), 0xff)
     addr3 = band(address, 0xff)
---    spi.write(sid, addr1, addr2, addr3, unpack(table_slice(bytes, 1, howMuch)))
+    --    spi.write(sid, addr1, addr2, addr3, unpack(table_slice(bytes, 1, howMuch)))
+--    print('writing to: ' .. address)
+--    for i = 1, #bytes do
+--        print('byte ' .. i .. ": " .. string.format('%X', bytes[i]))
+--    end
     spi.write(sid, addr1, addr2, addr3, unpack(bytes))
     csclose()
 end
@@ -112,15 +116,15 @@ function ft800_init()
     pio.pin.setdir(pio.OUTPUT, pdPin)
     --    1) Reset the FT800
     --      -  Drive PD_N low
---    print("pin low")
+    --    print("pin low")
     pio.pin.setlow(pdPin)
---    print("pin low set")
+    --    print("pin low set")
     --      -  Wait 20ms
     tmr.delay(0, 20000)
     --      - back to high state
---    print("pin high")
+    --    print("pin high")
     pio.pin.sethigh(pdPin)
---    print("pin high set")
+    --    print("pin high set")
     --      -  Wait for 20 ms
     tmr.delay(0, 20000)
     --    2) Issue the Wake - up command
@@ -242,8 +246,9 @@ end
 local drawCommands = {} -- growing table but reused
 local drawCommandCounter = 0
 function getNumCommands()
-    return drawCommandCounter/4
+    return drawCommandCounter / 4
 end
+
 function reset(color)
     drawCommandCounter = 0
     --FIXME now it is faster to not create new table but now it sends possibly unused commands when next displaylist is smaller
@@ -270,6 +275,7 @@ function commit()
     wrn(F.RAM_DL, drawCommands) --flush all cached commands in one spi transaction
     wr8(F.REG_DLSWAP, F.DLSWAP_FRAME) --//display list swap
 end
+
 --[[
  @value from 0 to 128
  ]]

@@ -37,16 +37,21 @@ while handle_interrupt() do
     ax, ay, az = accelerometer.get()
     ax = accelerometerXBuffer.put(ax) -- replace with buffered value
     ay = accelerometerYBuffer.put(ay) -- replace with buffered value
+
     width = math.floor((ax - xCalib) * roundingError) / roundingError * LCD_PARAMS.width * 7 -- - LCD_PARAMS.width * 0.8 -- board stands unevenly so -0.054
     height = math.floor((ay - yCalib) * roundingError) / roundingError * LCD_PARAMS.height * 7 -- + LCD_PARAMS.height * 0.8
-    --- BRIGHTNESS FADE IN ---
 
-    --    if brightness < 110 then
-    --        if c > 0.06 then
-    --            brightness = brightness + 1
-    --        end
-    --        setBrightness(brightness)
-    --    end
+    --    if width*16<-16384 then width=-16384/16 end
+    --    if width*16>16383 then width=16383/16 end
+
+--    - BRIGHTNESS FADE IN ---
+--
+--        if brightness < 110 then
+--            if c > 0.06 then
+--                brightness = brightness + 1
+--            end
+--            setBrightness(brightness)
+--        end
 
     -----------------------------
     fps = measureFPS()
@@ -56,23 +61,25 @@ while handle_interrupt() do
     local x1, x2, y1, y2, dy, sp = 20, 20, 180, 10, 20, 15
     local f1, f2 = 31, 20
     local clr = 0x666633
-    local touchXY = getRawTouch()
-    local touchX, touchY = 0,0
-
-    if not IsNotTouched(touchXY) then
-        touchX, touchY = getDirectXY(touchXY)
-
-        sx = touchX/1023*LCD_PARAMS.width
-        sy = (1023-touchY)/1023*LCD_PARAMS.height
-        if sx >= LCD_PARAMS.width then
-            sx=LCD_PARAMS.width
-        end
-        if sy >= LCD_PARAMS.height then
-            sy=LCD_PARAMS.height
-        end
-
-
-    end
+--    local touchXY = getRawTouch()
+--    local touchX, touchY = 0,0
+--
+--    if not IsNotTouched(touchXY) then
+--        touchX, touchY = getDirectXY(touchXY)
+--
+--        sx = touchX/1023*LCD_PARAMS.width
+--        sy = (1023-touchY)/1023*LCD_PARAMS.height
+--        if sx >= LCD_PARAMS.width then
+--            sx=LCD_PARAMS.width
+--        end
+--        if sy >= LCD_PARAMS.height then
+--            sy=LCD_PARAMS.height
+--        end
+--
+--
+--    end
+--    sx=math.floor(sx)
+--    sy=math.floor(sy)
 
 
 
@@ -87,8 +94,8 @@ while handle_interrupt() do
     drawText("APLIKACJE SYSTEMOW WBUDOWANYCH 2013", x1 + x2, 250, 0xff3300, 255, 22, 12)
 
 
-    drawText("X: "..sx, x2+180, y2, clr, 255, f2, sp)
-    drawText("Y: "..sy, x2+180, y2 + 1 * dy, clr, 255, f2, sp)
+--    drawText("X: "..sx, x2+180, y2, clr, 255, f2, sp)
+--    drawText("Y: "..sy, x2+180, y2 + 1 * dy, clr, 255, f2, sp)
 
     --=================================--
 

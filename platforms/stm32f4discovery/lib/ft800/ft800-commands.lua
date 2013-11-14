@@ -19,6 +19,7 @@ end
 
 function flush()
     updateBufferState()
+    print("read: " .. regCmdRead .. " write: " .. regCmdWrite .. " free: " .. freeSpace)
     --    while freeSpace < commandsSize do
     --        updateBufferState()
     --        tmr.delay(0, 500)
@@ -26,7 +27,6 @@ function flush()
 
     wrn(F.RAM_CMD + regCmdWrite, commands)
     --now tell the ft800 that there is more data in a buffer
-    print("read: " .. regCmdRead .. " write: " .. regCmdWrite .. " free: " .. freeSpace)
     wr32(F.REG_CMD_WRITE, (regCmdWrite + numBytes) % 4096)
     commands = {}
     numBytes= 0
