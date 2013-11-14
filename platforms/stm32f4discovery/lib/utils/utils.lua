@@ -1,16 +1,16 @@
 band = bit.band
 bor = bit.bor
 lsh = bit.lshift
-function rsh(value, shift)
-    v=bit.rshift(value, shift)
---    print  ('rsh: '..((value> 2147483647) and "wiekszy" or "niestety"))
-    if value > 2147483647 then -- bug: bit.isset(0xffffffff, 31) must be 1 not 0
---        print (' KOKOKOKOKOKO ')
-        v=bit.set(v, 31-shift)
-    end
-    return v
-end
-
+--function rsh(value, shift)
+--    v=bit.rshift(value, shift)
+----    print  ('rsh: '..((value> 2147483647) and "wiekszy" or "niestety"))
+--    if value > 2147483647 then -- bug: bit.isset(0xffffffff, 31) must be 1 not 0
+----        print (' KOKOKOKOKOKO ')
+--        v=bit.set(v, 31-shift)
+--    end
+--    return v
+--end
+rsh=bit.rshift
 
 -- Press any key to end the main loop implementation:
 function handle_interrupt()
