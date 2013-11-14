@@ -56,6 +56,24 @@ while handle_interrupt() do
     local x1, x2, y1, y2, dy, sp = 20, 20, 180, 10, 20, 15
     local f1, f2 = 31, 20
     local clr = 0x666633
+    local touchXY = getRawTouch()
+    local touchX, touchY = 0,0
+
+    if not IsNotTouched(touchXY) then
+        touchX, touchY = getDirectXY(touchXY)
+
+        sx = touchX/1023*LCD_PARAMS.width
+        sy = (1023-touchY)/1023*LCD_PARAMS.height
+        if sx >= LCD_PARAMS.width then
+            sx=LCD_PARAMS.width
+        end
+        if sy >= LCD_PARAMS.height then
+            sy=LCD_PARAMS.height
+        end
+
+
+    end
+
 
 
     shape.rectangle(x2 * 16 - 8 * 16, y2 * 16 - 5 * 16, 167 * 16, 82 * 16, 7 * 16, 0x001300, 255)
@@ -67,6 +85,10 @@ while handle_interrupt() do
     drawText("T. LASSAUD", x2, y2 + 2 * dy, clr, 255, f2, sp)
     drawText("M. RZYMSKI", x2, y2 + 3 * dy, clr, 255, f2, sp)
     drawText("APLIKACJE SYSTEMOW WBUDOWANYCH 2013", x1 + x2, 250, 0xff3300, 255, 22, 12)
+
+
+    drawText("X: "..sx, x2+180, y2, clr, 255, f2, sp)
+    drawText("Y: "..sy, x2+180, y2 + 1 * dy, clr, 255, f2, sp)
 
     --=================================--
 

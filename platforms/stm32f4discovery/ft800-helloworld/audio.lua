@@ -53,7 +53,7 @@ pio.pin.setdir(pio.INPUT, pio.PA_0)
     print("---debug\n sound regs")
     print(" reg_vol_sound: ", rd8(F.REG_VOL_SOUND))
     print(" reg_sound: byte1: ", bat(rd16(F.REG_SOUND),2), " byte0: ", bat(rd16(F.REG_SOUND),1))
-    print(" reg_play: ", F.REG_PLAY)
+    print(" reg_play: ", rd8(F.REG_PLAY))
     print("sound status: ", sound_status())
     print("---debug")
 
