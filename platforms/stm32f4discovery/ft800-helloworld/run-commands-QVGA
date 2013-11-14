@@ -1,0 +1,10 @@
+../lib/ft800/device/QVGA.lua
+../lib/ft800/constants.lua
+../lib/utils/utils.lua
+../lib/utils/spi.lua
+../lib/ft800/ft800-core.lua
+../lib/ft800/ft800-drawing.lua
+../lib/ft800/ft800-objects.lua
+../lib/ft800/ft800-commands.lua
+../lib/accelerometer/accelerometer.lua
+commands.lua
