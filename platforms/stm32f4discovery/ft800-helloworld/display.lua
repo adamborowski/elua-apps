@@ -50,7 +50,7 @@ while handle_interrupt() do
     if height > LCD_PARAMS.height then height = LCD_PARAMS.height
     elseif height < -LCD_PARAMS.height then height = -LCD_PARAMS.height
     end
-    print(width)
+--    print(width)
     --    if width*16<-16384 then width=-16384/16 end
     --    if width*16>16383 then width=16383/16 end
 
