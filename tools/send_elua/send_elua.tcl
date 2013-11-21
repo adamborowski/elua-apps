@@ -26,15 +26,19 @@ if { $fileName eq ""} {
     puts "no modules file found"
     exit
 }
-
-
-#
 set modulesFolder [file dirname $fileName]
-set modulesHandle [open $fileName r]
-
-while {[scan [gets $modulesHandle] %s item] >0} {
-  lappend modules [file join $modulesFolder $item]
+set inputExtension [file extension $fileName]
+if {$inputExtension == ".lua" } {
+  lappend modules [file join $modulesFolder $fileName]
+} else {
+  set modulesHandle [open $fileName r]
+  while {[scan [gets $modulesHandle] %s item] >0} {
+    lappend modules [file join $modulesFolder $item]
+  }
 }
+#
+
+
 
 puts "\n Following modules will be included for compilation in order as occured on the following list:\n"
 set listChars "  \xbb "
