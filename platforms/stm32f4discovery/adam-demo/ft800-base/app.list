@@ -3,4 +3,5 @@
 ../../lib/utils/utils.lua
 ../../lib/utils/spi.lua
 ../../lib/ft800/ft800-core.lua
+../../lib/ft800/ft800-drawing.lua
 ft800.lua
