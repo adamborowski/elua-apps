@@ -1,0 +1,6 @@
+../../lib/ft800/device/WQVGA.lua
+../../lib/ft800/constants.lua
+../../lib/utils/utils.lua
+../../lib/utils/spi.lua
+../../lib/ft800/ft800-core.lua
+ft800.lua

@@ -19,6 +19,7 @@ local function interruptHandler(source)
         print('button pressed')
         -- indicate press button
         for i = 1, 6 do
+            pio.
             pio.pin.sethigh(unpack(leds))
             tmr.delay(0, 30000)
             pio.pin.setlow(unpack(leds))

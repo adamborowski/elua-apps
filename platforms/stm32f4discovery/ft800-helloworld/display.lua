@@ -33,6 +33,8 @@ for i = 1, accelerometerXBuffer.size do --calibration
     yCalib = accelerometerYBuffer.put(yCalib) -- replace with buffered value
     tmr.delay(0, 10000)
 end
+xCalib = xCalib + 0.06
+yCalib = yCalib + 0.06
 local clr = 0x666633
 local x1, x2, y1, y2, dy, sp = 20, 20, 180, 10, 20, 15
 local f1, f2 = 31, 20
