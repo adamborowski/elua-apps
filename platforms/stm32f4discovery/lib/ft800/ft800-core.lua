@@ -69,6 +69,23 @@ function wrn(address, bytes)
     csclose()
 end
 
+function wrstart(address)
+    pio.pin.setlow(csPin) -- csopen()
+    addr1 = rsh(address, 16) + 128
+    addr2 = band(rsh(address, 8), 0xff)
+    addr3 = band(address, 0xff)
+    spi.write(sid, addr1, addr2, addr3)
+end
+function wrbyte(byte)
+    spi.write(sid, byte)
+end
+function wrend()
+    pio.pin.sethigh(csPin) --csclose()
+end
+
+
+
+
 --[[
 @param address 22 bit adress
 --]]

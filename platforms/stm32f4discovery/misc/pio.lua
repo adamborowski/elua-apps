@@ -1,4 +1,4 @@
-local p=pio.PB_10
+local p=pio.PD_13
 pio.pin.setdir(pio.OUTPUT, p )
 while 1 do
 	
