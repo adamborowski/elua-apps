@@ -6,7 +6,7 @@ function handle_finish()
 end
 
 function wait(msc)
-    tmr.delay(0, msc * 1000)
+    tmr.delay(0, msc * 1000*0.2)
 end
 
 local red, green, blue, orange = pio.PD_14, pio.PD_12, pio.PD_15, pio.PD_13

@@ -9,7 +9,7 @@ local function interruptHandler(resourceID)
         pio.pin.setlow(unpack(leds))
         tmr.delay(0, 30000)
     end
-    if prev_gpio then prev_gpio(resourceID) end
+    if prev_handler then prev_handler(resourceID) end
 end
 
 prev_handler = cpu.set_int_handler(cpu.INT_GPIO_POSEDGE, interruptHandler)
